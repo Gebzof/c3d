@@ -6,7 +6,7 @@
 /*   By: gebz <gebz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 15:10:02 by gebz              #+#    #+#             */
-/*   Updated: 2025/03/29 15:27:57 by gebz             ###   ########.fr       */
+/*   Updated: 2025/04/15 20:07:30 by gebz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ typedef struct s_mlx
 	void	*win;
 }	t_mlx;
 
-typedef struct s_map
+typedef struct s_game
 {
-	//char **tab;
+	char	**tab;
+	t_mlx	mlx;
 	// autres param possible 
-}	t_map;
+}	t_game;
 
 // main
 int		main(int ac, char **av, char **env);

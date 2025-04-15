@@ -1,38 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gebz <gebz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/29 15:10:05 by gebz              #+#    #+#             */
-/*   Updated: 2025/04/15 21:20:55 by gebz             ###   ########.fr       */
+/*   Created: 2025/04/15 20:05:03 by gebz              #+#    #+#             */
+/*   Updated: 2025/04/15 20:10:29 by gebz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/c3d.h"
 
-void	error(char *str)
+void	init_all_value(t_game	*game)
 {
-	printf("%d", str);
-	exit(1);
-}
-
-int	main(int ac, char **av, char **env)
-{
-	t_game	game;
-	int		fd;
-
-	if (ac != 2 || !env)
-		return (error("argument"));
-	fd = open(av[1], O_RDONLY);
-	if (fd == -1)
-		error("open");
-	init_all_value(&game);
-	close(fd);
-	game.mlx.mlx = mlx_init();
-	if (!game.mlx.mlx)
-		exit(1);
-	game.mlx.win = mlx_new_window(game.mlx.mlx, 32, 32, "cub3d");
-	mlx_loop(game.mlx.mlx);
+	game->tab = NULL;
 }
