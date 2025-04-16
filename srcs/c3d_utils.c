@@ -3,11 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gebz <gebz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gpichon <gpichon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 15:10:00 by gebz              #+#    #+#             */
-/*   Updated: 2025/03/29 15:11:41 by gebz             ###   ########.fr       */
+/*   Updated: 2025/04/16 12:00:30 by gpichon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/c3d.h"
+
+void	error(char *str)
+{
+	printf("%s", str);
+	exit(1);
+}

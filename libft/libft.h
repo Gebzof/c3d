@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gebz <gebz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gpichon <gpichon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:31:39 by gpichon           #+#    #+#             */
-/*   Updated: 2025/03/29 13:57:17 by gebz             ###   ########.fr       */
+/*   Updated: 2025/04/16 11:45:58 by gpichon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <stdio.h>
-#include <limits.h>
-
+# include <limits.h>
 
 typedef struct s_point
 {
@@ -61,15 +60,11 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-
 void	flood_fill(char **tab, t_point size, t_point begin);
 void	fill(char **tab, t_point size, t_point curr, int a_fill);
-
 int		ft_atoi_base(const char *str, int str_base);
 int		check_num(char c);
 int		check_base(char str, int base);
-
-
 int		is_power_of_2(unsigned int n);
 
 #endif

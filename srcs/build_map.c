@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   build_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpichon <gpichon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/29 15:10:05 by gebz              #+#    #+#             */
-/*   Updated: 2025/04/16 12:12:18 by gpichon          ###   ########.fr       */
+/*   Created: 2025/04/16 11:45:21 by gpichon           #+#    #+#             */
+/*   Updated: 2025/04/16 12:12:53 by gpichon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/c3d.h"
 
-int	main(int ac, char **av, char **env)
+void	build_map(t_game *game, int fd)
 {
-	t_game	game;
-	int		fd;
+	char	*line;
+	int		len;
+	(void)game;
 
-	if (ac != 2 || !env)
-		return (error("argument"), 0);
-	fd = open(av[1], O_RDONLY);
-	if (fd == -1)
-		error("open");
-	init_all_value(&game);
-	build_map(&game, fd);
-	close(fd);
-	game.mlx.mlx = mlx_init();
-	if (!game.mlx.mlx)
-		exit(1);
-	game.mlx.win = mlx_new_window(game.mlx.mlx, 32, 32, "cub3d");
-	mlx_loop(game.mlx.mlx);
+	len = 0;
+	line = get_next_line(fd);
+	if (!line)
+		error("jjjj");
+}
+
+char	*get_next_line(int fd)
+{
+	char	save[1500000];
+	char	buff[1];
+	int		i;
+
+	i = 0;
+	save[0] = '\0';
+	while (read(fd, buff, 1) == 1)
+	{
+		save[i] = buff[0];
+		save[i + 1] = '\0';
+		if (save[i] == '\0')
+			break ;
+		i++;
+	}
+	if (save[0] == '\0')
+		return (0);
+	return (ft_strdup(save));
 }
